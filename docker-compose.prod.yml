@@ -1,0 +1,34 @@
+# Production with HTTPS via Caddy for analyser.hendrik.tech
+#
+# Prerequisites:
+#   - DNS A/AAAA record for analyser.hendrik.tech → this server
+#   - Spotify redirect URI: https://analyser.hendrik.tech/api/auth/callback
+#
+# Usage: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+
+services:
+  app:
+    environment:
+      CLIENT_URL: https://analyser.hendrik.tech
+      SPOTIFY_REDIRECT_URI: https://analyser.hendrik.tech/api/auth/callback
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - web
+
+volumes:
+  caddy_data:
+  caddy_config:

@@ -1,0 +1,12 @@
+# Local container test on 127.0.0.1 (Spotify redirect must be registered):
+#   http://127.0.0.1:8080/api/auth/callback
+#
+# Usage: docker compose -f docker-compose.yml -f docker-compose.local.yml up --build
+
+services:
+  app:
+    ports:
+      - "127.0.0.1:8080:3000"
+    environment:
+      CLIENT_URL: http://127.0.0.1:8080
+      SPOTIFY_REDIRECT_URI: http://127.0.0.1:8080/api/auth/callback

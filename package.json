@@ -1,0 +1,27 @@
+{
+  "name": "analyser",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup:certs": "node scripts/generate-certs.js",
+    "predev": "node scripts/predev.js",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "node server/index.js",
+    "dev:client": "node scripts/dev-client.js",
+    "build": "npm run build --prefix client",
+    "check": "node scripts/check.js",
+    "start": "node server/index.js",
+    "postinstall": "npm install --prefix client",
+    "docker:local": "docker compose -f docker-compose.yml -f docker-compose.local.yml up --build",
+    "docker:prod": "docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build",
+    "docker:down": "docker compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.prod.yml down"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "selfsigned": "^2.4.1"
+  }
+}
