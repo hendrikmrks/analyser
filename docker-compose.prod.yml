@@ -4,7 +4,10 @@
 #   - DNS A/AAAA record for analyser.hendrik.tech → this server
 #   - Spotify redirect URI: https://analyser.hendrik.tech/api/auth/callback
 #
-# Usage: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+# Usage: docker compose -f docker-compose.prod.yml up -d --build
+
+include:
+  - docker-compose.yml
 
 services:
   app:

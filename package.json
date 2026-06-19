@@ -12,9 +12,9 @@
     "check": "node scripts/check.js",
     "start": "node server/index.js",
     "postinstall": "npm install --prefix client",
-    "docker:local": "docker compose -f docker-compose.yml -f docker-compose.local.yml up --build",
-    "docker:prod": "docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build",
-    "docker:down": "docker compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.prod.yml down"
+    "docker:local": "docker compose -f docker-compose.local.yml up --build",
+    "docker:prod": "docker compose -f docker-compose.prod.yml up -d --build",
+    "docker:down": "docker compose -f docker-compose.prod.yml down"
   },
   "dependencies": {
     "concurrently": "^9.1.2",

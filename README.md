@@ -100,7 +100,7 @@ Die App läuft als ein Container (Frontend + API). TLS für die Domain übernimm
 ### Lokal testen (127.0.0.1)
 
 ```bash
-npm run docker:local
+docker compose -f docker-compose.local.yml up --build
 ```
 
 App: [http://127.0.0.1:8080](http://127.0.0.1:8080)
@@ -110,7 +110,7 @@ App: [http://127.0.0.1:8080](http://127.0.0.1:8080)
 DNS muss auf den Server zeigen. Dann auf dem Server:
 
 ```bash
-npm run docker:prod
+docker compose -f docker-compose.prod.yml up -d --build
 ```
 
 Caddy holt automatisch ein Let's-Encrypt-Zertifikat und leitet HTTPS an den App-Container weiter.

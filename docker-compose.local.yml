@@ -1,7 +1,10 @@
 # Local container test on 127.0.0.1 (Spotify redirect must be registered):
 #   http://127.0.0.1:8080/api/auth/callback
 #
-# Usage: docker compose -f docker-compose.yml -f docker-compose.local.yml up --build
+# Usage: docker compose -f docker-compose.local.yml up --build
+
+include:
+  - docker-compose.yml
 
 services:
   app:
