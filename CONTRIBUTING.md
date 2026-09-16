@@ -90,6 +90,6 @@ Für Sicherheitsrelevante Findings (z. B. Probleme im OAuth-Flow oder Session-Ha
 
 ## Verhalten
 
-Wir erwarten von allen Mitwirkenden einen respektvollen Umgang miteinander, wie im [Code of Conduct](CODE_OF_CONDUCT.md) beschrieben. Verstöße können an kontakt@hendrik-beier.de gemeldet werden.
+Wir erwarten von allen Mitwirkenden einen respektvollen Umgang miteinander, wie im [Code of Conduct](CODE_OF_CONDUCT.md) beschrieben. Verstöße können an github@hendrik-beier.de gemeldet werden.
 
 Viel Spaß beim Beitragen!
